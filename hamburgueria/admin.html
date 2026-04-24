@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administração | Hamburgueria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { padding-top: 40px; background-color: var(--bg); display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+    .admin-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: var(--shadow-card);
+    }
+    .admin-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .form-input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      outline: none;
+    }
+    .form-input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255, 107, 26, 0.15);
+    }
+    .btn-save {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--red) 0%, var(--orange) 100%);
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+    .btn-save:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 51, 51, 0.4);
+    }
+    .btn-back {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .btn-back:hover { color: var(--text-primary); }
+    .toast {
+      position: fixed; top: 20px; right: 20px;
+      background: var(--green-wa); color: white;
+      padding: 12px 24px; border-radius: var(--radius-sm);
+      font-weight: 700; font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.4);
+      transform: translateX(150%); transition: var(--transition);
+      z-index: 1000;
+    }
+    .toast.show { transform: translateX(0); }
+  </style>
+</head>
+<body>
+
+  <div class="toast" id="toast">✅ Informações salvas com sucesso!</div>
+
+  <div class="admin-container">
+    <h1 class="admin-title">⚙️ Configurações da Loja</h1>
+    
+    <form id="admin-form" onsubmit="saveConfig(event)">
+      <div class="form-group">
+        <label class="form-label" for="cfg-brand">Nome da Hamburgueria</label>
+        <input type="text" id="cfg-brand" class="form-input" placeholder="Ex: Hamburgueria Legal" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="cfg-whatsapp">Número de WhatsApp (apenas números)</label>
+        <input type="text" id="cfg-whatsapp" class="form-input" placeholder="Ex: 5511999999999" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="cfg-address">Endereço Físico</label>
+        <input type="text" id="cfg-address" class="form-input" placeholder="Ex: Rua das Flores, 123" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="cfg-hours-week">Horário (Segunda a Sexta)</label>
+        <input type="text" id="cfg-hours-week" class="form-input" placeholder="Ex: Seg–Sex: 18h às 23h" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="cfg-hours-weekend">Horário (Finais de Semana)</label>
+        <input type="text" id="cfg-hours-weekend" class="form-input" placeholder="Ex: Sáb–Dom: 17h às 00h" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="cfg-delivery">Tempo de Entrega</label>
+        <input type="text" id="cfg-delivery" class="form-input" placeholder="Ex: 30-50 minutos" required />
+      </div>
+
+      <button type="submit" class="btn-save">Salvar Informações</button>
+      <a href="index.html" class="btn-back">⬅ Voltar para o Cardápio</a>
+    </form>
+  </div>
+
+  <script>
+    // Carregar dados salvos ao abrir
+    document.addEventListener('DOMContentLoaded', () => {
+      const config = JSON.parse(localStorage.getItem('hamburgueria_config') || '{}');
+      
+      if(config.brandName) document.getElementById('cfg-brand').value = config.brandName;
+      if(config.whatsapp) document.getElementById('cfg-whatsapp').value = config.whatsapp;
+      if(config.address) document.getElementById('cfg-address').value = config.address;
+      if(config.hoursWeek) document.getElementById('cfg-hours-week').value = config.hoursWeek;
+      if(config.hoursWeekend) document.getElementById('cfg-hours-weekend').value = config.hoursWeekend;
+      if(config.delivery) document.getElementById('cfg-delivery').value = config.delivery;
+    });
+
+    function saveConfig(e) {
+      e.preventDefault();
+      
+      const config = {
+        brandName: document.getElementById('cfg-brand').value.trim(),
+        whatsapp: document.getElementById('cfg-whatsapp').value.trim().replace(/\D/g, ''),
+        address: document.getElementById('cfg-address').value.trim(),
+        hoursWeek: document.getElementById('cfg-hours-week').value.trim(),
+        hoursWeekend: document.getElementById('cfg-hours-weekend').value.trim(),
+        delivery: document.getElementById('cfg-delivery').value.trim()
+      };
+
+      if (!config.whatsapp.startsWith('55')) {
+         config.whatsapp = '55' + config.whatsapp; // Ensure country code for BR
+      }
+
+      localStorage.setItem('hamburgueria_config', JSON.stringify(config));
+      
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+  </script>
+</body>
+</html>
