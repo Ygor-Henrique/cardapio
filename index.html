@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hamburgueria Exemplo - Cardápio digital. Peça agora pelo WhatsApp e receba em até 50 min. Os melhores hambúrgueres artesanais da cidade." />
+  <title>Hamburgueria Exemplo | Cardápio Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== HERO HEADER ========== -->
+  <header class="hero" id="top">
+    <div class="hero-overlay"></div>
+    <nav class="navbar">
+      <div class="brand">
+        <span class="brand-icon">🍔</span>
+        <span class="brand-name" id="info-brand-name">Hamburgueria <strong>Exemplo</strong></span>
+      </div>
+      <div class="nav-badges">
+        <span class="badge badge-open">● Aberto agora</span>
+        <span class="badge badge-delivery">🛵 30–50 min</span>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <p class="hero-sub">Artesanal &amp; Irresistível</p>
+      <h1 class="hero-title">Peça o melhor<br/><span class="highlight">hambúrguer</span><br/>pelo WhatsApp</h1>
+      <p class="hero-desc">Ingredientes frescos, sabor inigualável. Sem cadastro, sem app!</p>
+      <a href="#cardapio" class="btn-hero" id="btn-ver-cardapio">
+        <span>Ver Cardápio</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </div>
+
+    <!-- Info bar -->
+    <div class="info-bar">
+      <div class="info-item">
+        <span class="info-icon">📍</span>
+        <span id="info-address">Rua das Hambúrgueres, 123 - Centro</span>
+      </div>
+      <div class="info-item">
+        <span class="info-icon">🕐</span>
+        <span id="info-hours">Seg–Sex: 18h–23h | Sab–Dom: 17h–00h</span>
+      </div>
+      <div class="info-item">
+        <span class="info-icon">🛵</span>
+        <span id="info-delivery">Entrega: 30–50 minutos</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== CATEGORIAS ========== -->
+  <section class="categories-section" id="cardapio">
+    <div class="container">
+      <h2 class="section-title">Nosso Cardápio</h2>
+      <div class="categories-nav" id="categories-nav">
+        <button class="cat-btn active" data-target="hamburguer" id="cat-hamburguer">
+          <span class="cat-emoji">🍔</span>
+          <span>Hambúrgueres</span>
+        </button>
+        <button class="cat-btn" data-target="porcao" id="cat-porcao">
+          <span class="cat-emoji">🍟</span>
+          <span>Porções</span>
+        </button>
+        <button class="cat-btn" data-target="bebida" id="cat-bebida">
+          <span class="cat-emoji">🥤</span>
+          <span>Bebidas</span>
+        </button>
+        <button class="cat-btn" data-target="sobremesa" id="cat-sobremesa">
+          <span class="cat-emoji">🍫</span>
+          <span>Sobremesas</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRODUTOS ========== -->
+  <main class="products-wrapper" id="products-wrapper">
+    <div class="container">
+
+      <!-- HAMBÚRGUERES -->
+      <section class="product-section" id="section-hamburguer">
+        <h2 class="product-section-title">
+          <span>🍔</span> Hambúrgueres
+        </h2>
+        <div class="product-grid">
+
+          <article class="product-card" id="prod-xburguer">
+            <div class="product-img-wrap">
+              <img src="imgs/xburguer.png" alt="X-Burguer" class="product-img" loading="lazy"/>
+              <span class="badge-popular">🔥 Mais Pedido</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">X-Burguer</h3>
+              <p class="product-desc">Pão brioche, carne artesanal 180g, queijo cheddar e molho especial da casa</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 20,00</span>
+                <button class="btn-add" id="add-xburguer" onclick="addToCart('X-Burguer', 20.00)" aria-label="Adicionar X-Burguer ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" id="prod-xbacon">
+            <div class="product-img-wrap">
+              <img src="imgs/xbacon.png" alt="X-Bacon" class="product-img" loading="lazy"/>
+              <span class="badge-popular">🔥 Mais Pedido</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">X-Bacon</h3>
+              <p class="product-desc">Carne 180g, bacon crocante, queijo cheddar e molho defumado especial</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 25,00</span>
+                <button class="btn-add" id="add-xbacon" onclick="addToCart('X-Bacon', 25.00)" aria-label="Adicionar X-Bacon ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" id="prod-xduplo">
+            <div class="product-img-wrap">
+              <img src="imgs/xduplo.png" alt="X-Duplo" class="product-img" loading="lazy"/>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">X-Duplo</h3>
+              <p class="product-desc">Dois smash burgers, cebola caramelizada, queijo duplo e molho secreto</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 35,00</span>
+                <button class="btn-add" id="add-xduplo" onclick="addToCart('X-Duplo', 35.00)" aria-label="Adicionar X-Duplo ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" id="prod-xcrispy">
+            <div class="product-img-wrap">
+              <div class="product-img-placeholder">🍔</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">X-Crispy</h3>
+              <p class="product-desc">Frango empanado crocante, maionese de alho, alface americana e tomate</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 28,00</span>
+                <button class="btn-add" id="add-xcrispy" onclick="addToCart('X-Crispy', 28.00)" aria-label="Adicionar X-Crispy ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- PORÇÕES -->
+      <section class="product-section" id="section-porcao">
+        <h2 class="product-section-title">
+          <span>🍟</span> Porções
+        </h2>
+        <div class="product-grid">
+
+          <article class="product-card" id="prod-batata">
+            <div class="product-img-wrap">
+              <img src="imgs/batata.png" alt="Batata Frita" class="product-img" loading="lazy"/>
+              <span class="badge-popular">🔥 Mais Pedido</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Batata Frita</h3>
+              <p class="product-desc">Batatas crocantes com sal, temperadas na hora — porção generosa</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 15,00</span>
+                <button class="btn-add" id="add-batata" onclick="addToCart('Batata Frita', 15.00)" aria-label="Adicionar Batata Frita ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" id="prod-onion">
+            <div class="product-img-wrap">
+              <img src="imgs/onion.png" alt="Onion Rings" class="product-img" loading="lazy"/>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Onion Rings</h3>
+              <p class="product-desc">Anéis de cebola empanados e fritos, crocantes por fora e macios por dentro</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 18,00</span>
+                <button class="btn-add" id="add-onion" onclick="addToCart('Onion Rings', 18.00)" aria-label="Adicionar Onion Rings ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" id="prod-nuggets">
+            <div class="product-img-wrap">
+              <div class="product-img-placeholder">🍗</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Nuggets (10 un)</h3>
+              <p class="product-desc">Nuggets de frango sequinhos, acompanha molho barbecue ou mostarda</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 22,00</span>
+                <button class="btn-add" id="add-nuggets" onclick="addToCart('Nuggets (10 un)', 22.00)" aria-label="Adicionar Nuggets ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- BEBIDAS -->
+      <section class="product-section" id="section-bebida">
+        <h2 class="product-section-title">
+          <span>🥤</span> Bebidas
+        </h2>
+        <div class="product-grid">
+
+          <article class="product-card" id="prod-coca">
+            <div class="product-img-wrap">
+              <img src="imgs/coca.png" alt="Coca-Cola Lata" class="product-img" loading="lazy"/>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Coca-Cola Lata</h3>
+              <p class="product-desc">Refrigerante gelado 350ml — a dupla perfeita com qualquer lanche</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 6,00</span>
+                <button class="btn-add" id="add-coca" onclick="addToCart('Coca-Cola Lata', 6.00)" aria-label="Adicionar Coca-Cola ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" id="prod-agua">
+            <div class="product-img-wrap">
+              <div class="product-img-placeholder">💧</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Água Mineral</h3>
+              <p class="product-desc">Água mineral sem gás gelada 500ml</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 4,00</span>
+                <button class="btn-add" id="add-agua" onclick="addToCart('Água Mineral', 4.00)" aria-label="Adicionar Água ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" id="prod-suco">
+            <div class="product-img-wrap">
+              <div class="product-img-placeholder">🍊</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Suco Natural</h3>
+              <p class="product-desc">Laranja, limão ou maracujá — 300ml feito na hora</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 10,00</span>
+                <button class="btn-add" id="add-suco" onclick="addToCart('Suco Natural', 10.00)" aria-label="Adicionar Suco ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- SOBREMESAS -->
+      <section class="product-section" id="section-sobremesa">
+        <h2 class="product-section-title">
+          <span>🍫</span> Sobremesas
+        </h2>
+        <div class="product-grid">
+
+          <article class="product-card" id="prod-brownie">
+            <div class="product-img-wrap">
+              <div class="product-img-placeholder">🍫</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Brownie + Sorvete</h3>
+              <p class="product-desc">Brownie quente de chocolate com sorvete de creme e calda de chocolate</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 18,00</span>
+                <button class="btn-add" id="add-brownie" onclick="addToCart('Brownie + Sorvete', 18.00)" aria-label="Adicionar Brownie ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" id="prod-milkshake">
+            <div class="product-img-wrap">
+              <div class="product-img-placeholder">🥛</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Milkshake</h3>
+              <p class="product-desc">Chocolate, morango ou baunilha — cremoso e gelado 400ml</p>
+              <div class="product-footer">
+                <span class="product-price">R$ 20,00</span>
+                <button class="btn-add" id="add-milkshake" onclick="addToCart('Milkshake', 20.00)" aria-label="Adicionar Milkshake ao carrinho">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer class="footer" id="info">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">🍔</span>
+        <h2 class="footer-name" id="footer-brand-name">Hamburgueria Exemplo</h2>
+        <p class="footer-tagline">Sabor artesanal desde 2019</p>
+      </div>
+      <div class="footer-info">
+        <h3>Informações</h3>
+        <ul>
+          <li id="footer-address">📍 Rua das Hambúrgueres, 123 - Centro</li>
+          <li id="footer-hours-week">🕐 Seg–Sex: 18h às 23h</li>
+          <li id="footer-hours-weekend">🕐 Sáb–Dom: 17h às 00h</li>
+          <li>🛵 Entrega Grátis</li>
+          <li>💳 Aceitamos: Pix, Dinheiro, Cartão</li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Fale Conosco</h3>
+        <a href="https://wa.me/5511999999999" class="footer-whatsapp" id="footer-whatsapp-link" target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.508 5.83L0 24l6.335-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.006-1.371l-.36-.213-3.76.977.999-3.65-.234-.374A9.774 9.774 0 012.182 12c0-5.421 4.397-9.818 9.818-9.818 5.421 0 9.818 4.397 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+          <span id="footer-whatsapp-text">WhatsApp: (11) 99999-9999</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Hamburgueria Exemplo · Feito com ❤️ para demonstração</p>
+    </div>
+  </footer>
+
+  <!-- ========== CARRINHO FIXO ========== -->
+  <div class="cart-fab" id="cart-fab" onclick="toggleCart()" aria-label="Abrir carrinho">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    <span class="cart-count" id="cart-count">0</span>
+  </div>
+
+  <!-- WHATSAPP FIXO -->
+  <a href="https://wa.me/5511999999999" id="whatsapp-fab" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.508 5.83L0 24l6.335-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.006-1.371l-.36-.213-3.76.977.999-3.65-.234-.374A9.774 9.774 0 012.182 12c0-5.421 4.397-9.818 9.818-9.818 5.421 0 9.818 4.397 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+  </a>
+
+  <!-- ========== PAINEL DO CARRINHO ========== -->
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+  <aside class="cart-panel" id="cart-panel" aria-label="Carrinho de compras">
+    <div class="cart-header">
+      <h2>🛒 Seu Pedido</h2>
+      <button class="cart-close" id="cart-close-btn" onclick="closeCart()" aria-label="Fechar carrinho">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="cart-empty" id="cart-empty">
+      <div class="cart-empty-icon">🍔</div>
+      <p>Seu carrinho está vazio</p>
+      <span>Adicione itens do cardápio</span>
+    </div>
+
+    <ul class="cart-items" id="cart-items"></ul>
+
+    <div class="cart-footer" id="cart-footer">
+      <div class="user-details-form" id="user-details-form">
+        <h3 class="cart-form-title">📝 Dados da Entrega</h3>
+        <input type="text" id="user-name" class="cart-input" placeholder="Nome completo" required />
+        <input type="text" id="user-address" class="cart-input" placeholder="Endereço (Rua, Número, Bairro)" required />
+        <select id="user-payment" class="cart-input" required>
+          <option value="" disabled selected>Forma de Pagamento</option>
+          <option value="Pix">Pix</option>
+          <option value="Cartão">Cartão na Entrega</option>
+          <option value="Dinheiro">Dinheiro vivo</option>
+        </select>
+      </div>
+
+      <div class="cart-total-row cart-total-main">
+        <span>Total</span>
+        <span id="cart-total">R$ 0,00</span>
+      </div>
+
+      <button class="btn-whatsapp" id="btn-send-whatsapp" onclick="sendWhatsApp()" aria-label="Enviar pedido pelo WhatsApp">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.508 5.83L0 24l6.335-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.006-1.371l-.36-.213-3.76.977.999-3.65-.234-.374A9.774 9.774 0 012.182 12c0-5.421 4.397-9.818 9.818-9.818 5.421 0 9.818 4.397 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+        Enviar pedido pelo WhatsApp
+      </button>
+      <button class="btn-clear-cart" id="btn-clear-cart" onclick="clearCart()">Limpar carrinho</button>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
